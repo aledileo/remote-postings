@@ -3,7 +3,7 @@ import fetch from "isomorphic-unfetch";
 
 const JobLink = ({ job }) => (
   <li>
-    <Link href="/j/[title]" as={`/j/${job.title}`}>
+    <Link href="/j/[title]" as={`/j/${job.slug}`}>
       <a>{job.title}</a>
     </Link>
   </li>
@@ -12,7 +12,7 @@ const JobLink = ({ job }) => (
 const Index = ({ data }) => (
   <div>
     <ul>
-      { data.items.map(job => (<JobLink job={job} key={job.guid}/>)) }
+      { data.map(job => (<JobLink job={job} key={job}/>)) }
     </ul>
     { data && (<pre>{JSON.stringify(data, null, 2)}</pre>)}
   </div>
