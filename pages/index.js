@@ -19,7 +19,7 @@ const Index = ({ data }) => (
 );
 
 Index.getInitialProps = async ({ req }) => {
-  const res = await fetch(`${process.env.ORIGIN_API}api/jobs`);
+  const res = await fetch(`${process.env.ORIGIN_API}/api/jobs`);
   const data = await res.json();
   
   return { data };

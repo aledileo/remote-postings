@@ -12,8 +12,7 @@ const Job = (props) => {
   )
 }
 
-Job.getInitialProps = async ({ req, query }) => {
-  // console.log(query)
+Job.getInitialProps = async ({ query }) => {
   const res = await fetch(`${process.env.ORIGIN_API}api/job/${query.slug}`);
   const data = await res.json();
   
