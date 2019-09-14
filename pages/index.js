@@ -1,7 +1,5 @@
 import Link from 'next/link';
-import Parser from 'rss-parser';
-
-const WWRUrl = 'https://weworkremotely.com/categories/remote-programming-jobs.rss';
+import fetch from "isomorphic-unfetch";
 
 const JobLink = ({ job }) => (
   <li>
@@ -20,9 +18,11 @@ const Index = ({ data }) => (
   </div>
 );
 
-Index.getInitialProps = async () => {
-  const parser = new Parser();
-  const data = await parser.parseURL(WWRUrl);
+Index.getInitialProps = async ({ req }) => {
+  const origin = req.headers.referer
+  const res = await fetch(`${origin}api/jobs`);
+  const data = await res.json();
+  
   return { data };
 }
 
