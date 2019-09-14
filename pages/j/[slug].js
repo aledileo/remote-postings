@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
+import fetch from 'isomorphic-unfetch';
 
 const Job = (props) => {
-  const router = useRouter();
   return (
     <div>
       <h2>{props.data.title}</h2>
@@ -13,7 +13,7 @@ const Job = (props) => {
 }
 
 Job.getInitialProps = async ({ query }) => {
-  const res = await fetch(`${process.env.ORIGIN_API}api/job/${query.slug}`);
+  const res = await fetch(`${process.env.ORIGIN_API}/api/job/${query.slug}`);
   const data = await res.json();
   
   return { data };
