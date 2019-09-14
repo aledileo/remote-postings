@@ -1,20 +1,26 @@
-import Link from 'next/link';
 import fetch from "isomorphic-unfetch";
-
-const JobLink = ({ job }) => (
-  <li>
-    <Link href="/j/[title]" as={`/j/${job.slug}`}>
-      <a>{job.title}</a>
-    </Link>
-  </li>
-)
+import Item from '../components/Item';
+import theme from '../theme';
 
 const Index = ({ data }) => (
   <div>
     <ul>
-      { data.map(job => (<JobLink job={job} key={job.slug}/>)) }
+      { data.map(job => (<Item job={job} key={job.slug}/>)) }
     </ul>
     { data && (<pre>{JSON.stringify(data, null, 2)}</pre>)}
+    <style jsx global>{`
+      @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+      
+      ul {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: ${theme.primary.background}
+      }  
+    `}</style>
   </div>
 );
 

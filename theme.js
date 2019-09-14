@@ -1,6 +1,13 @@
 export default {
   primary: {
     background: '#000',
+    accent1: '#FAFAFA',
+    accent2: '#EAEAEA',
+    accent3: '#999999',
+    accent4: '#888888',
+    accent5: '#666666',
+    accent6: '#333333',
+    accent7: '#111111',
     foreground: '#FFF'
   },
   error: {

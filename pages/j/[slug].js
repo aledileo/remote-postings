@@ -8,6 +8,13 @@ const Job = (props) => {
       <div dangerouslySetInnerHTML={{__html: props.data.content}}/>
       <div>{props.data.contentSnippet}</div>
       <pre>{JSON.stringify(props.data, null, 2)}</pre>
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+        body {
+          font-family: 'Roboto', sans-serif;
+        }  
+    `}</style>
     </div>
   )
 }

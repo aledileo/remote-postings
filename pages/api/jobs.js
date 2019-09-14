@@ -15,13 +15,17 @@ const getImageURL = content => {
   return ''
 }
 
+const formatTitle = title => title.split(':', 2)[1].trim();
+const getCompany = title => title.split(':')[0];
+
 export default async (req, res) => {
   const parser = new Parser();
   const rawData = await parser.parseURL(WWRUrl);
-  const data = rawData.items.map(job => ({
-    title: job.title,
-    imageUrl: getImageURL(job.content),
-    slug: slugify(job.title, SLUG_OPTIONS)
+  const data = rawData.items.map(({title, content}) => ({
+    title: formatTitle(title),
+    imageUrl: getImageURL(content),
+    company: getCompany(title),
+    slug: slugify(title, SLUG_OPTIONS)
   }));
 
   res.status(200).json(data);
