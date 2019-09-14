@@ -12,15 +12,14 @@ const JobLink = ({ job }) => (
 const Index = ({ data }) => (
   <div>
     <ul>
-      { data.map(job => (<JobLink job={job} key={job}/>)) }
+      { data.map(job => (<JobLink job={job} key={job.slug}/>)) }
     </ul>
     { data && (<pre>{JSON.stringify(data, null, 2)}</pre>)}
   </div>
 );
 
 Index.getInitialProps = async ({ req }) => {
-  const origin = req.headers.referer
-  const res = await fetch(`${origin}api/jobs`);
+  const res = await fetch(`${process.env.ORIGIN_API}api/jobs`);
   const data = await res.json();
   
   return { data };
