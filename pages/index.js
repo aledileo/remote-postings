@@ -1,6 +1,6 @@
 import fetch from "isomorphic-unfetch";
 import Item from '../components/Item';
-import indexStyles from './indexStyles';
+import indexStyles from '../components/indexStyles';
 import Header from '../components/Header';
 
 const Index = ({ data }) => {
