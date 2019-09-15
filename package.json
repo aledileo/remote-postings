@@ -1,8 +1,8 @@
 {
-  "name": "next-rss",
+  "name": "remote-postings",
   "version": "0.1.0",
-  "description": "Rss reader built with Next.js",
-  "main": "index.js",
+  "description": "We Work Remotely feed built with Next.js",
+  "main": "page/index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
